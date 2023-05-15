@@ -421,7 +421,7 @@ impl DBISectionContribution {
 /// <https://github.com/Microsoft/microsoft-pdb/blob/082c5290e5aff028ae84e43affa8be717aa7af73/PDB/dbi/dbi.h#L1197>
 #[derive(Debug, Copy, Clone)]
 #[allow(dead_code)] // reason = "unused fields added for completeness"
-pub(crate) struct DBIModuleInfo {
+pub struct DBIModuleInfo {
     /// Currently open module.
     pub opened: u32,
     /// This module's first section contribution.
@@ -484,7 +484,7 @@ pub struct Module<'m> {
 
 impl<'m> Module<'m> {
     /// The `DBIModuleInfo` from the module info substream in the DBI stream.
-    pub(crate) fn info(&self) -> &DBIModuleInfo {
+    pub fn info(&self) -> &DBIModuleInfo {
         &self.info
     }
     /// The module name.

@@ -389,7 +389,8 @@ impl FusedIterator for PdbInternalRvaRangeIter<'_> {}
 /// [1997 reference material]: https://www.microsoft.com/msj/0597/hood0597.aspx
 #[derive(Debug, Default)]
 pub struct AddressMap<'s> {
-    pub(crate) original_sections: Vec<ImageSectionHeader>,
+    #[allow(missing_docs)]
+    pub original_sections: Vec<ImageSectionHeader>,
     pub(crate) transformed_sections: Option<Vec<ImageSectionHeader>>,
     pub(crate) transformed_to_original: Option<OMAPTable<'s>>,
     pub(crate) original_to_transformed: Option<OMAPTable<'s>>,
