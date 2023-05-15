@@ -69,6 +69,16 @@ Run with `cargo run --release --example <name>`:
 * [`pdb_symbols`](examples/pdb_symbols.rs) is a toy program that prints the name and location of every function and
   data value defined in the symbol table.
 
+* [`pdb_symbols2json`](examples/pdb_symbols2json.rs) is a function information export utility; produces a JSON file with a function list containing:
+- RVAs/VAs (depending on `--imagebase` option)
+- file, section and function names
+
+Example usage:
+```
+cd target/release/examples
+./pdb_symbols2json.exe --imagebase 140000000 input.pdb
+```
+
 * [`pdb2hpp`](examples/pdb2hpp.rs) is a somewhat larger program that prints an approximation of a C++ header file for
   a requested type given only a PDB.
 
