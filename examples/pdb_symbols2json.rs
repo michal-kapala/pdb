@@ -1,5 +1,6 @@
 use std::{env, fs::File};
 use serde::{Serialize, Deserialize};
+use chrono;
 use serde_json;
 use getopts::Options;
 use pdb::{FallibleIterator, AddressMap, ImageSectionHeader};
@@ -215,8 +216,10 @@ fn main() {
         return;
     };
 
+    println!("Execution started:\t\t{}", chrono::offset::Local::now());
     match dump_pdb(filename, imagebase) {
         Ok(_) => (),
         Err(e) => eprintln!("error dumping PDB: {}", e),
     }
+    println!("Execution finished:\t\t{}", chrono::offset::Local::now());
 }
